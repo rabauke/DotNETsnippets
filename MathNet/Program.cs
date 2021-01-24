@@ -11,17 +11,17 @@ namespace MathNetSnippet
 {
     class Program
     {
-        static void Special()
+        private static void Special()
         {
-            // Evaluate a special function
+            // evaluate a special function
             const double x = 0.5;
             Console.WriteLine($"erf({x}) = {SpecialFunctions.Erf(x)}");
         }
 
 
-        static void Integrate() 
+        private static void Integrate() 
         {
-            // Approximate using a relative error of 1e-5.
+            // perform a one-dimensional numerical integration
             const double x0 = 0.0;
             const double x1 = 1.0;
             const double eps = 1e-6;
@@ -32,9 +32,9 @@ namespace MathNetSnippet
         }
 
 
-        static void SolveLinSys()
+        private static void SolveLinSys()
         {
-            // Solve a random linear equation system with 8 unknowns
+            // solve a system of linear equations
             const int N = 8;
             var gen = new MersenneTwister();
             var A = Matrix<double>.Build.Dense(N, N);
