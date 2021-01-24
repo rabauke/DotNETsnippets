@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "json", "json\json.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "rsa", "rsa\rsa.csproj", "{10205755-BFE8-4DCA-AE80-DA3043D0A9D4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathNet", "MathNet\MathNet.csproj", "{6C8B69B5-B734-46B8-8FE2-E1AE88BC0F13}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,5 +46,17 @@ Global
 		{10205755-BFE8-4DCA-AE80-DA3043D0A9D4}.Release|x64.Build.0 = Release|Any CPU
 		{10205755-BFE8-4DCA-AE80-DA3043D0A9D4}.Release|x86.ActiveCfg = Release|Any CPU
 		{10205755-BFE8-4DCA-AE80-DA3043D0A9D4}.Release|x86.Build.0 = Release|Any CPU
+		{6C8B69B5-B734-46B8-8FE2-E1AE88BC0F13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C8B69B5-B734-46B8-8FE2-E1AE88BC0F13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C8B69B5-B734-46B8-8FE2-E1AE88BC0F13}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{6C8B69B5-B734-46B8-8FE2-E1AE88BC0F13}.Debug|x64.Build.0 = Debug|Any CPU
+		{6C8B69B5-B734-46B8-8FE2-E1AE88BC0F13}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6C8B69B5-B734-46B8-8FE2-E1AE88BC0F13}.Debug|x86.Build.0 = Debug|Any CPU
+		{6C8B69B5-B734-46B8-8FE2-E1AE88BC0F13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C8B69B5-B734-46B8-8FE2-E1AE88BC0F13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C8B69B5-B734-46B8-8FE2-E1AE88BC0F13}.Release|x64.ActiveCfg = Release|Any CPU
+		{6C8B69B5-B734-46B8-8FE2-E1AE88BC0F13}.Release|x64.Build.0 = Release|Any CPU
+		{6C8B69B5-B734-46B8-8FE2-E1AE88BC0F13}.Release|x86.ActiveCfg = Release|Any CPU
+		{6C8B69B5-B734-46B8-8FE2-E1AE88BC0F13}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
