@@ -65,7 +65,8 @@ namespace json
 
     class Program
     {
-        static void Main(string[] args)
+        // parse json representing MyData
+        static private void parseMyData()
         {
             var data = new MyData { Name = "Cesar", Age = 100, Boolean = true, YesNo = false, Time = DateTime.UtcNow, Day = DayEnum.Saturday };
             // default formating
@@ -93,6 +94,64 @@ namespace json
                 NullValueHandling = NullValueHandling.Ignore,
                 StringEscapeHandling = StringEscapeHandling.EscapeNonAscii
             }));
+        }
+
+
+        private static void parseToken(JToken token)
+        {
+            foreach (var v in token.Values())
+            {
+                switch (v.Type)
+                {
+                    // a high-quality implementation needs to cover other cases as well
+                    case JTokenType.Integer:
+                        {
+                            var value = v.Value<Int64>();
+                            Console.WriteLine($"path: {token.Path}, value: {value}");
+                            break;
+                        }
+                    case JTokenType.Float:
+                        {
+                            var value = v.Value<double>();
+                            Console.WriteLine($"path: {token.Path}, value: {value}");
+                            break;
+                        }
+                    case JTokenType.Boolean:
+                        {
+                            var value = v.Value<bool>();
+                            Console.WriteLine($"path: {token.Path}, value: {value}");
+                            break;
+                        }
+                    case JTokenType.String:
+                        {
+                            var value = v.Value<string>();
+                            Console.WriteLine($"path: {token.Path}, value: {value}");
+                            break;
+                        }
+                    case JTokenType.Property:
+                        parseToken(v);
+                        break;
+                }
+            }
+        }
+
+
+        // parse json of unknown structure (implementation is very basic and does not cover all cases of valid json)
+        private static void parseUnKnown()
+        {
+            string json = "{ command: \"ls\", arguments: [ \"--all\", \"--color\" ], isUnix: true, object: { pi: 3.14, name: \"Pi\" } }";
+            var obj = JObject.Parse(json);
+            foreach (var token in obj.Children())
+            {
+                parseToken(token);
+            }
+        }
+
+
+        static void Main(string[] args)
+        {
+            parseMyData();
+            parseUnKnown();
         }
     }
 }
