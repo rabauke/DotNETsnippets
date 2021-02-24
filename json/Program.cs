@@ -1,6 +1,7 @@
 ﻿using System;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Serialization;
 
 namespace json
 {
@@ -94,6 +95,22 @@ namespace json
                 NullValueHandling = NullValueHandling.Ignore,
                 StringEscapeHandling = StringEscapeHandling.EscapeNonAscii
             }));
+
+            // Newtonsoft.Json ignores case for de-serialization
+            // see also https://makolyte.com/csharp-case-sensitivity-in-json-deserialization/
+            string jsonStr = "{\"nAme\": \"Cesar\", \"AgE\": 100, \"BoOlean\": true, \"JaNein\": \"nein\", \"TimE\": \"2021-02-24T22:05:23.3192154Z\", \"Day\": 5}";
+            var data4 = JObject.Parse(jsonStr).ToObject<MyData>();
+            data4.MaybeNull = "not null";
+            Console.WriteLine(JsonConvert.SerializeObject(data4, Formatting.Indented, new JsonSerializerSettings
+            {
+                ContractResolver = new DefaultContractResolver{
+                    // use "camelCase" for serialization, note serialization of "MaybeNull"
+                    NamingStrategy = new CamelCaseNamingStrategy()
+                },
+                NullValueHandling = NullValueHandling.Ignore,
+                StringEscapeHandling = StringEscapeHandling.EscapeNonAscii
+            }));
+
         }
 
 
